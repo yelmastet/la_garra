@@ -2,254 +2,584 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Portafolio La Garra</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Garra</title>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      background-color: #0a0a23;
-      color: #e0e0e0;
-      font-family: 'Audiowide', Arial, sans-serif;
-    }
-    .navbar {
-      background-color: #001122;
-    }
-    .navbar-brand, .nav-link {
-      color: #00aaff !important;
-      transition: color 0.3s, text-shadow 0.3s;
-      cursor: pointer;
-    }
-    .nav-link:hover {
-      color: #33ddff !important;
-      text-shadow: 0 0 8px #00aaff, 0 0 16px #00aaff;
-    }
-    .neon-glow {
-      filter: drop-shadow(0 0 5px #00aaff)
-              drop-shadow(0 0 10px #00aaff)
-              drop-shadow(0 0 20px #00aaff);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% {
-        filter: drop-shadow(0 0 5px #00aaff)
-                drop-shadow(0 0 10px #00aaff)
-                drop-shadow(0 0 20px #00aaff);
-      }
-      50% {
-        filter: drop-shadow(0 0 10px #00aaff)
-                drop-shadow(0 0 20px #00aaff)
-                drop-shadow(0 0 30px #00aaff);
-      }
-    }
-    h1, h2, h3 {
-      color: #00aaff;
-    }
-    .card {
-      background-color: #001122;
-      border: 1px solid #00aaff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
-    .hidden-section {
-      display: none;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
-    <a class="navbar-brand">La Garra</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" onclick="mostrarSeccion('inicio')">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" onclick="mostrarSeccion('semestre1')">Primer Semestre</a></li>
-        <li class="nav-item"><a class="nav-link" onclick="mostrarSeccion('semestre2')">Segundo Semestre</a></li>
-        <li class="nav-item"><a class="nav-link" onclick="mostrarSeccion('semestre3')">Tercer Semestre</a></li>
-        <li class="nav-item"><a class="nav-link" onclick="mostrarSeccion('semestre4')">Cuarto Semestre</a></li>
-        <li class="nav-item"><a class="nav-link" onclick="mostrarSeccion('semestre5')">Quinto Semestre</a></li>
-        <li class="nav-item"><a class="nav-link" onclick="mostrarSeccion('semestre6')">Sexto Semestre</a></li>
-      </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#" data-page="inicio">La Garra</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+       </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#" data-page="inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="equipo">Equipo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="introduccion">Introducción</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Avances por semestre
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#" data-page="semestre1">Semestre 1</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semestre2">Semestre 2</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semestre3">Semestre 3</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semestre4">Semestre 4</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semestre5">Semestre 5</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semestre6">Semestre 6</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- Contenido Principal -->
-<main class="container my-5">
+  <!-- Contenedor de páginas -->
+  <div id="pages" class="mt-5 pt-5">
 
-  <!-- INICIO -->
-<section id="inicio">
-    <div class="text-center">
-      <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg" class="neon-glow mb-4" width="250">
-        <!-- SVG de la mano -->
-        <rect x="60" y="100" width="80" height="100" rx="15" fill="#002244" stroke="#00aaff" stroke-width="3"/>
-        <rect x="40" y="120" width="20" height="60" rx="8" fill="#002244" stroke="#00aaff" stroke-width="3"/>
-        <circle cx="50" cy="115" r="7" fill="#002244" stroke="#00aaff" stroke-width="2"/>
-        <rect x="65" y="50" width="15" height="60" rx="6" fill="#002244" stroke="#00aaff" stroke-width="3"/>
-        <circle cx="72.5" cy="45" r="6" fill="#002244" stroke="#00aaff" stroke-width="2"/>
-        <rect x="85" y="45" width="15" height="65" rx="6" fill="#002244" stroke="#00aaff" stroke-width="3"/>
-        <circle cx="92.5" cy="40" r="6" fill="#002244" stroke="#00aaff" stroke-width="2"/>
-        <rect x="105" y="50" width="15" height="60" rx="6" fill="#002244" stroke="#00aaff" stroke-width="3"/>
-        <circle cx="112.5" cy="45" r="6" fill="#002244" stroke="#00aaff" stroke-width="2"/>
-        <rect x="125" y="60" width="15" height="50" rx="6" fill="#002244" stroke="#00aaff" stroke-width="3"/>
-        <circle cx="132.5" cy="55" r="6" fill="#002244" stroke="#00aaff" stroke-width="2"/>
-        <rect x="60" y="200" width="80" height="20" rx="10" fill="#002244" stroke="#00aaff" stroke-width="3"/>
-      </svg>
+    <!-- Speech -->
+    <div class="page" id="speech">
+    <!-- ESPACIO PARA EL VIDEO -->
+     <div class="text-center mt-4">
+      <!-- Título del video -->
+      <h3 class="mb-3">Speech</h3>
 
-      <h1 class="mb-4">Proyecto: La Garra</h1>
-      <p class="lead mb-4">Diseñada para mejorar la interacción humano-máquina, proteger al usuario en ambientes peligrosos y brindar nuevas capacidades ergonómicas y precisas.</p>
+      <!-- Video -->
+      <video id="video-proyecto" width="720" height="405" controls autoplay muted loop class="mb-4">
+        <source src="img/speech.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de videos.
+      </video>
+    </div>
+    </div>
 
-      <div class="ratio ratio-16x9 mb-5">
-        <iframe src="https://www.youtube.com/embed/MfwYlQQjJIg" title="Video del Proyecto" allowfullscreen class="w-100" style="aspect-ratio: 16 / 9; border: none;"></iframe>
+    <!-- Inicio / Hero -->
+    <div class="page" id="inicio">
+      <section class="hero text-center text-white d-flex flex-column justify-content-center align-items-center">
+        <h1 class="display-4 fw-bold fade-in">Proyecto <span>La Garra</span></h1>
+        <p class="lead fade-in-delay">Automatización Industrial — Proyecto Integrador</p>
+
+        <svg width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Efecto de resplandor -->
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+
+            <style>
+              @keyframes pulse {
+                0% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                50% { filter: drop-shadow(0 0 20px #00bfff); opacity: 0.8; }
+                100% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+              }
+              .glow {
+                fill: none;
+                stroke: #00aaff;
+                stroke-width: 10;
+                stroke-linecap: round;
+                filter: url(#glow);
+                animation: pulse 2s infinite ease-in-out;
+              }
+            </style>
+          </defs>
+
+          <!-- Estructura principal -->
+          <g transform="translate(150,60)">
+            <!-- NUEVA cuerda superior (más delgada y larga) -->
+            <rect x="-4" y="-80" width="8" height="80" rx="4" fill="#00aaff" filter="url(#glow)">
+              <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+            </rect>
+
+            <!-- Articulación superior -->
+            <circle cx="0" cy="0" r="10" fill="#00aaff" />
+
+            <!-- Cuerpo central -->
+            <rect x="-12" y="10" width="24" height="70" rx="10" class="glow"/>
+
+            <!-- Unión intermedia -->
+            <circle cx="0" cy="85" r="10" fill="#00aaff" />
+            <rect x="-12" y="95" width="24" height="90" rx="10" class="glow"/>
+
+            <!-- Brazos laterales más largos -->
+            <line x1="0" y1="10" x2="-70" y2="80" class="glow"/>
+            <line x1="0" y1="10" x2="70" y2="80" class="glow"/>
+
+            <!-- Puntas de brazos (más largas) -->
+            <rect x="-90" y="80" width="24" height="100" rx="10" transform="rotate(-25 -78 120)" class="glow"/>
+            <rect x="66" y="80" width="24" height="100" rx="10" transform="rotate(25 78 120)" class="glow"/>
+          </g>
+        </svg>
+        <h3 class="mb-1">Diseñada para mejorar la interacción humano-máquina, proteger al usuario en ambientes peligrosos y brindar nuevas capacidades ergonómicas y precisas.</h3>
+
+        <a href="#" class="btn btn-primary mt-3 fade-in-delay2" data-page="speech">Click para ver el speech</a>
+      </section>
+    </div>
+
+
+    <!-- Equipo -->
+    <div class="page container" id="equipo">
+      <section class="my-5">
+        <h2 class="section-title text-center">Integrantes</h2>
+        <div class="row text-center">
+          <div class="col-md-4 team-member mb-4 fade-in">
+            <img src="img/mateo.png" alt="Integrante 1" class="img-fluid rounded-circle mb-2">
+            <h5>Mateo Tique</h5>
+            <p>Estudiante Automatización industrial, Universidad San Buenaventura</p>
+          </div>
+          <div class="col-md-4 team-member mb-4 fade-in-delay">
+            <img src="img/gabriela.jpg" alt="Integrante 2" class="img-fluid rounded-circle mb-2">
+            <h5>Gabriela Rojas</h5>
+            <p>Estudiante Automatización industrial, Universidad San Buenaventura</p>
+          </div>
+          <div class="col-md-4 team-member mb-4 fade-in-delay2">
+            <img src="img/david.jpg" alt="Integrante 3" class="img-fluid rounded-circle mb-2">
+            <h5>David Torres</h5>
+            <p>Estudiante Automatización industrial, Universidad San Buenaventura</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Introducción del Proyecto -->
+    <div class="page container" id="introduccion">
+      <h2 class="section-title text-center">Introducción del Proyecto</h2>
+      <section class="card text-white bg-dark mb-3 p-4 rounded">
+        
+        <div class="row justify-content-center">
+          <div class="col-md-10 text-center">
+            <p class="lead">
+              Este proyecto tiene como objetivo crear un cobot con mecanismo de agarre inteligente, fácil de usar y accesible para todo tipo de usuarios. Su diseño se enfocará en la eficiencia, seguridad y practicidad, buscando aportar en campos como la automatización, la medicina, la rehabilitación y la colaboración humano-robot. De esta forma, se pretende ofrecer una solución innovadora y funcional que combine la precisión mecánica con la interacción intuitiva entre humanos y máquinas. 
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Semestres -->
+    <div class="page container" id="semestre1">
+      <h2 class="section-title text-center">Semestre 1</h2>
+
+      <div class="card text-white bg-dark mb-3 p-4 rounded">
+        <h3 class="text-center mb-4">Abstract</h3>
+        <p>
+          This project aims to develop a cobot with a robotic gripping system capable of mimicking the basic movements of a human hand, such as grasping, flexing, and extending with precision. The device will be easy to control, safe, and accessible, designed for applications in medicine, rehabilitation, industry, and automation.
+        </p>
+        <p>
+          The project seeks to reduce the risk of exposure to chemicals and prevent musculoskeletal injuries caused by repetitive tasks. To this end, the cobot will use sensors, actuators, and an intuitive interface that enable precise movements, autonomous tasks, and seamless collaboration with the user.
+        </p>
+        <p>
+          It includes research on materials and technologies, a detailed development plan, and surveys confirming the need for this technology in high-risk environments.
+        </p>
+        <p>
+          The mission is to create an efficient and safe cobot that optimizes human work, and the vision is to position itself as a leader in technological innovation, automation, and occupational safety.
+        </p>
+
+        <h3 class="mt-5">Planteamiento del Problema</h3>
+        <p>
+          ¿Cómo podemos reducir los riesgos de exposición a sustancias químicas corrosivas y prevenir afecciones derivadas de tareas repetitivas mediante el uso de un cobot que realice las labores de manipulación de forma segura y precisa?
+        </p>
+
+        <h3 class="mt-4">Objetivo General</h3>
+        <p>
+          Diseñar un cobot de asistencia avanzada programado para manipular sustancias corrosivas y ejecutar tareas repetitivas de forma segura y eficiente. Este sistema estará equipado con sensores y actuadores que le permitan realizar movimientos precisos y controlados, reduciendo la exposición del operario y aumentando la seguridad en los procesos industriales.
+        </p>
+
+        <h4 class="mt-4">Objetivos Específicos</h4>
+        <ul>
+          <li>Diseñar el cobot para que ayude a reducir el esfuerzo físico del usuario.</li>
+          <li>Garantizar la confianza que el cobot genere en el usuario a la hora de realizar movimientos precisos.</li>
+          <li>Adaptar el diseño del cobot para que funcione bien en el entorno de trabajo y se integre fácilmente con los procesos existentes.</li>
+          <li>Programar el cobot para que pueda hacer tareas repetitivas y de manipulación de manera automática y confiable.</li>
+          <li>Crear una interfaz que permita al usuario controlar el cobot de manera sencilla y sin complicaciones.</li>
+        </ul>
+
+        <h3 class="mt-4">Misión</h3>
+        <p>
+          Desarrollar un cobot diseñado para manipular sustancias corrosivas y realizar tareas repetitivas de manera segura y eficiente. Este cobot será capaz de ejecutar movimientos precisos y controlados, siguiendo comandos predefinidos, con el fin de ofrecer soluciones prácticas en entornos industriales que requieren alta precisión y reducción del riesgo para el usuario.
+        </p>
+
+        <h3 class="mt-4">Visión</h3>
+        <p>
+          Convertirnos en un referente en innovación tecnológica mediante el desarrollo de cobots avanzados que impulsen la automatización industrial. Nuestro cobot será una herramienta innovadora capaz de asumir tareas riesgosas para el ser humano, promoviendo un entorno laboral más seguro, eficiente y con un alto nivel de desarrollo tecnológico.
+        </p>
+
+        <h3 class="mt-4">Justificación</h3>
+        <p>
+          Trabajar con sustancias corrosivas siempre implica un riesgo para las personas, ya que la exposición puede causar daños en la piel, los ojos y las vías respiratorias. Además, las tareas repetitivas en este tipo de trabajo pueden provocar problemas musculares con el tiempo, afectando la salud y el bienestar de los trabajadores.
+        </p>
+        <p>
+          Tras una investigación más profunda, identificamos dos problemáticas clave en entornos industriales y de manufactura que motivaron el desarrollo de este proyecto:
+        </p>
+        <ul>
+          <li><strong>Lesiones en la piel:</strong> Muchos trabajadores están expuestos a productos químicos agresivos, lo que incrementa el riesgo de quemaduras, irritaciones y afecciones cutáneas severas.</li>
+          <li><strong>Enfermedades musculares:</strong> Las tareas repetitivas como el empaquetado, el ensamblaje de piezas o la manipulación constante de materiales pueden generar afecciones en los trabajadores, como el síndrome del túnel carpiano, tendinitis o fatiga muscular crónica.</li>
+        </ul>
+
+        <h3 class="mt-4">Matriz de Riesgo</h3>
+        <ul>
+          <li>
+            <strong>Riesgo identificado:</strong> Ausencia de un integrante del equipo durante la exposición.<br>
+            <strong>Plan de contingencia:</strong> Asegurar que todos los miembros del equipo estén completamente familiarizados con el contenido del proyecto y puedan presentar o responder preguntas en caso de que alguno no pueda asistir.
+          </li>
+          <li class="mt-2">
+            <strong>Riesgo identificado:</strong> Limitación de presupuesto.<br>
+            <strong>Plan de contingencia:</strong> Priorizar componentes críticos; buscar financiación externa o apoyo institucional.
+          </li>
+          <li class="mt-2">
+            <strong>Riesgo identificado:</strong> Problemas de seguridad y bienestar de los integrantes y usuarios durante la ejecución del proyecto.<br>
+            <strong>Plan de contingencia:</strong> Implementar protocolos de seguridad, equipos de protección y capacitaciones.
+          </li>
+          <li class="mt-2">
+            <strong>Riesgo identificado:</strong> Falta de consenso o comunicación dentro del equipo.<br>
+            <strong>Plan de contingencia:</strong> Reuniones semanales de seguimiento con roles bien definidos.
+          </li>
+        </ul>
+
+        <h3 class="mt-4">Delimitación del Proyecto</h3>
+        <p>
+          Este proyecto se desarrollará en el contexto nacional, considerando las necesidades de los sectores industriales y de manufactura donde los operarios están expuestos a sustancias químicas o realizan tareas repetitivas. La investigación, diseño y prototipado se llevará a cabo en la Universidad San Buenaventura, Bogotá.
+        </p>
+        <p>
+          El prototipo estará enfocado en realizar tareas básicas de manipulación, como agarre y traslado de materiales, mediante una programación que responda a una interfaz de control predefinida. En esta fase no se incluirán funciones avanzadas como inteligencia artificial o visión por computadora.
+        </p>
+        <p>
+          Los materiales, componentes y tecnologías serán seleccionados según su disponibilidad en el mercado nacional y el presupuesto académico del proyecto.
+        </p>
+
+        <h3 class="mt-4">Alcance del Proyecto</h3>
+        <ul>
+          <li>Diseñar y construir un prototipo funcional de cobot para tareas básicas de manipulación.</li>
+          <li>Incorporar sensores y actuadores que permitan agarre, traslado y manipulación precisa.</li>
+          <li>Desarrollar una interfaz de control sencilla y práctica.</li>
+          <li>Validar el funcionamiento mediante pruebas y retroalimentación de especialistas.</li>
+          <li>Establecer bases para futuros desarrollos con mayores capacidades y aplicaciones industriales.</li>
+        </ul>
       </div>
     </div>
 
-    <!-- Avatares del Equipo -->
-    <div class="card mt-5">
-        <h3 class="text-center mb-4">Integrantes del Proyecto</h3>
-        <div class="row text-center">
-        <div class="col-6 col-md-3 mb-3">
-            <img id="avatar1" src="./img/gabriela.jpg" class="img-fluid rounded-circle mb-2" alt="Avatar Gabriela">
-            <input type="text" class="form-control form-control-sm text-center" placeholder="Gabriela Rojas">
+
+    <div class="page container" id="semestre2">
+      <h2 class="section-title text-center">Semestre 2</h2>
+
+      <div class="card text-white bg-dark mb-3">
+        <img src="img/prototipo.jpg" class="card-img-top" alt="Semestre 2">
+        <div class="card-body">
+          <p class="card-text">Durante el segundo semestre se avanzó en el desarrollo técnico del proyecto, enfocándose en la integración entre el diseño electrónico, la simulación y la implementación práctica. Se realizaron simulaciones de los sistemas eléctricos y de programación, el diseño de planos electrónicos, y el montaje de un prototipo que permitió la visualización e interacción entre LabVIEW y el sistema físico del cobot. Además, se elaboró la primera versión del PCB correspondiente al prototipo parcial del proyecto.</p>
         </div>
-        <div class="col-6 col-md-3 mb-3">
-            <img id="avatar2" src="./img/juan.jpg" class="img-fluid rounded-circle mb-2" alt="Avatar Juan">
-            <input type="text" class="form-control form-control-sm text-center" placeholder="Juan Cantor">
+      </div>
+
+      <div class="row text-center my-5">
+        <!-- Espacio 1 -->
+        <div class="col-md-4 mb-3 fade-in">
+          <h4>Diagrama electrónico</h4>
+          <img src="img/diagrama.png" alt="Diagrama electrónico" class="img-fluid rounded shadow">
         </div>
-        <div class="col-6 col-md-3 mb-3">
-            <img id="avatar3" src="./img/mateo.jpg" class="img-fluid rounded-circle mb-2" alt="Avatar Mateo">
-            <input type="text" class="form-control form-control-sm text-center" placeholder="Mateo Tique">
+
+        <!-- Espacio 2 -->
+        <div class="col-md-4 mb-3 fade-in">
+          <h4>Simulación de movimiento</h4>
+          <img src="img/simulacion.png" alt="Simulación del movimiento" class="img-fluid rounded shadow">
         </div>
-        <div class="col-6 col-md-3 mb-3">
-            <img id="avatar4" src="./img/david.jpg" class="img-fluid rounded-circle mb-2" alt="Avatar David">
-            <input type="text" class="form-control form-control-sm text-center" placeholder="David Torres">
+
+        <!-- Espacio 3 -->
+        <div class="col-md-4 mb-3 fade-in">
+          <h4>Diseño del PCB</h4>
+          <img src="img/pcb.png" alt="Diseño del PCB" class="img-fluid rounded shadow">
         </div>
+      </div>
+    </div>
+
+
+    <div class="page container" id="semestre3">
+      <h2 class="section-title text-center">Semestre 3</h2>
+      <div class="card text-white bg-dark mb-3 text-center">
+        <div class="card-body">
+          <p class="card-text"></p>
         </div>
-    </div>
-    </div>
-</section> 
+        <img src="img/proximamente.png" class="card-img-top" alt="Semestre 3">
+        <div class="text-center">
+          <svg width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Efecto de resplandor -->
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
 
-<!-- PRIMER SEMESTRE -->
-<section id="semestre1" class="hidden-section">
-  <h2>Primer Semestre</h2>
-  <div class="card">
-  <h3>Abstract</h3>
-  <p>This project presents the design and development of an anthropomorphic robotic hand aimed at enhancing human-machine interaction. With potential applications in industrial, medical, and rehabilitation settings, the project seeks to reduce risks associated with exposure to hazardous substances and repetitive tasks. The system is based on principles of ergonomics, precision, and ease of use, incorporating sensors and actuators to provide a natural and intuitive control experience.</p>
-</div>
+                <style>
+                  @keyframes pulse {
+                    0% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                    50% { filter: drop-shadow(0 0 20px #00bfff); opacity: 0.8; }
+                    100% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                  }
+                  .glow {
+                    fill: none;
+                    stroke: #00aaff;
+                    stroke-width: 10;
+                    stroke-linecap: round;
+                    filter: url(#glow);
+                    animation: pulse 2s infinite ease-in-out;
+                  }
+                </style>
+              </defs>
 
-  <div class="card">
-    <h3>Introducción</h3>
-    <p>Hoy en día, la robótica ha avanzado mucho, permitiendo crear dispositivos que imitan la forma y función de partes del cuerpo humano. Un ejemplo importante son las manos robóticas, que se usan en prótesis, fábricas y tareas que requieren gran precisión.
-        Este proyecto busca desarrollar un dispositivo fácil de usar y accesible para todas las personas. Su diseño será eficiente y práctico, con el objetivo de contribuir en áreas como la medicina, la rehabilitación y la interacción entre humanos y máquinas, ofreciendo una solución innovadora y útil.</p>
-    <div class="text-center mt-3">
-      <img src="./img/introduccion.png" class="img-fluid rounded" alt="Imagen de introducción del proyecto" style="max-width: 80%; border: 1px solid #00aaff;">
+              <!-- Estructura principal -->
+              <g transform="translate(150,60)">
+                <!-- NUEVA cuerda superior (más delgada y larga) -->
+                <rect x="-4" y="-80" width="8" height="80" rx="4" fill="#00aaff" filter="url(#glow)">
+                  <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+                </rect>
+
+                <!-- Articulación superior -->
+                <circle cx="0" cy="0" r="10" fill="#00aaff" />
+
+                <!-- Cuerpo central -->
+                <rect x="-12" y="10" width="24" height="70" rx="10" class="glow"/>
+
+                <!-- Unión intermedia -->
+                <circle cx="0" cy="85" r="10" fill="#00aaff" />
+                <rect x="-12" y="95" width="24" height="90" rx="10" class="glow"/>
+
+                <!-- Brazos laterales más largos -->
+                <line x1="0" y1="10" x2="-70" y2="80" class="glow"/>
+                <line x1="0" y1="10" x2="70" y2="80" class="glow"/>
+
+                <!-- Puntas de brazos (más largas) -->
+                <rect x="-90" y="80" width="24" height="100" rx="10" transform="rotate(-25 -78 120)" class="glow"/>
+                <rect x="66" y="80" width="24" height="100" rx="10" transform="rotate(25 78 120)" class="glow"/>
+              </g>
+          </svg>
+        </div>
+      </div>
     </div>
+
+    <div class="page container" id="semestre4">
+      <h2 class="section-title text-center">Semestre 4</h2>
+      <div class="card text-white bg-dark mb-3 text-center">
+        <div class="card-body">
+          <p class="card-text"></p>
+        </div>
+        <img src="img/proximamente.png" class="card-img-top" alt="Semestre 4">
+        <div class="text-center">
+          <svg width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Efecto de resplandor -->
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                <style>
+                  @keyframes pulse {
+                    0% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                    50% { filter: drop-shadow(0 0 20px #00bfff); opacity: 0.8; }
+                    100% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                  }
+                  .glow {
+                    fill: none;
+                    stroke: #00aaff;
+                    stroke-width: 10;
+                    stroke-linecap: round;
+                    filter: url(#glow);
+                    animation: pulse 2s infinite ease-in-out;
+                  }
+                </style>
+              </defs>
+
+              <!-- Estructura principal -->
+              <g transform="translate(150,60)">
+                <!-- NUEVA cuerda superior (más delgada y larga) -->
+                <rect x="-4" y="-80" width="8" height="80" rx="4" fill="#00aaff" filter="url(#glow)">
+                  <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+                </rect>
+
+                <!-- Articulación superior -->
+                <circle cx="0" cy="0" r="10" fill="#00aaff" />
+
+                <!-- Cuerpo central -->
+                <rect x="-12" y="10" width="24" height="70" rx="10" class="glow"/>
+
+                <!-- Unión intermedia -->
+                <circle cx="0" cy="85" r="10" fill="#00aaff" />
+                <rect x="-12" y="95" width="24" height="90" rx="10" class="glow"/>
+
+                <!-- Brazos laterales más largos -->
+                <line x1="0" y1="10" x2="-70" y2="80" class="glow"/>
+                <line x1="0" y1="10" x2="70" y2="80" class="glow"/>
+
+                <!-- Puntas de brazos (más largas) -->
+                <rect x="-90" y="80" width="24" height="100" rx="10" transform="rotate(-25 -78 120)" class="glow"/>
+                <rect x="66" y="80" width="24" height="100" rx="10" transform="rotate(25 78 120)" class="glow"/>
+              </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="page container" id="semestre5">
+      <h2 class="section-title text-center">Semestre 5</h2>
+      <div class="card text-white bg-dark mb-3 text-center">
+        <div class="card-body">
+          <p class="card-text"></p>
+        </div>
+        <img src="img/proximamente.png" class="card-img-top" alt="Semestre 5">
+        <div class="text-center">
+          <svg width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Efecto de resplandor -->
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                <style>
+                  @keyframes pulse {
+                    0% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                    50% { filter: drop-shadow(0 0 20px #00bfff); opacity: 0.8; }
+                    100% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                  }
+                  .glow {
+                    fill: none;
+                    stroke: #00aaff;
+                    stroke-width: 10;
+                    stroke-linecap: round;
+                    filter: url(#glow);
+                    animation: pulse 2s infinite ease-in-out;
+                  }
+                </style>
+              </defs>
+
+              <!-- Estructura principal -->
+              <g transform="translate(150,60)">
+                <!-- NUEVA cuerda superior (más delgada y larga) -->
+                <rect x="-4" y="-80" width="8" height="80" rx="4" fill="#00aaff" filter="url(#glow)">
+                  <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+                </rect>
+
+                <!-- Articulación superior -->
+                <circle cx="0" cy="0" r="10" fill="#00aaff" />
+
+                <!-- Cuerpo central -->
+                <rect x="-12" y="10" width="24" height="70" rx="10" class="glow"/>
+
+                <!-- Unión intermedia -->
+                <circle cx="0" cy="85" r="10" fill="#00aaff" />
+                <rect x="-12" y="95" width="24" height="90" rx="10" class="glow"/>
+
+                <!-- Brazos laterales más largos -->
+                <line x1="0" y1="10" x2="-70" y2="80" class="glow"/>
+                <line x1="0" y1="10" x2="70" y2="80" class="glow"/>
+
+                <!-- Puntas de brazos (más largas) -->
+                <rect x="-90" y="80" width="24" height="100" rx="10" transform="rotate(-25 -78 120)" class="glow"/>
+                <rect x="66" y="80" width="24" height="100" rx="10" transform="rotate(25 78 120)" class="glow"/>
+              </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="page container" id="semestre6">
+      <h2 class="section-title text-center">Semestre 6</h2>
+      <div class="card text-white bg-dark mb-3 text-center">
+        <div class="card-body">
+          <p class="card-text"></p>
+        </div>
+        <img src="img/proximamente.png" class="card-img-top" alt="Semestre 6">
+        <div class="text-center">
+          <svg width="300" height="420" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <!-- Efecto de resplandor -->
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+
+                <style>
+                  @keyframes pulse {
+                    0% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                    50% { filter: drop-shadow(0 0 20px #00bfff); opacity: 0.8; }
+                    100% { filter: drop-shadow(0 0 6px #00bfff); opacity: 1; }
+                  }
+                  .glow {
+                    fill: none;
+                    stroke: #00aaff;
+                    stroke-width: 10;
+                    stroke-linecap: round;
+                    filter: url(#glow);
+                    animation: pulse 2s infinite ease-in-out;
+                  }
+                </style>
+              </defs>
+
+              <!-- Estructura principal -->
+              <g transform="translate(150,60)">
+                <!-- NUEVA cuerda superior (más delgada y larga) -->
+                <rect x="-4" y="-80" width="8" height="80" rx="4" fill="#00aaff" filter="url(#glow)">
+                  <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+                </rect>
+
+                <!-- Articulación superior -->
+                <circle cx="0" cy="0" r="10" fill="#00aaff" />
+
+                <!-- Cuerpo central -->
+                <rect x="-12" y="10" width="24" height="70" rx="10" class="glow"/>
+
+                <!-- Unión intermedia -->
+                <circle cx="0" cy="85" r="10" fill="#00aaff" />
+                <rect x="-12" y="95" width="24" height="90" rx="10" class="glow"/>
+
+                <!-- Brazos laterales más largos -->
+                <line x1="0" y1="10" x2="-70" y2="80" class="glow"/>
+                <line x1="0" y1="10" x2="70" y2="80" class="glow"/>
+
+                <!-- Puntas de brazos (más largas) -->
+                <rect x="-90" y="80" width="24" height="100" rx="10" transform="rotate(-25 -78 120)" class="glow"/>
+                <rect x="66" y="80" width="24" height="100" rx="10" transform="rotate(25 78 120)" class="glow"/>
+              </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contacto -->
+    <div class="page container text-center" id="contacto">
+      <h2 class="section-title">Contacto</h2>
+      <p>📧 <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
+      <p>🔗 <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a></p>
+      <p>🐱 <a href="https://github.com/tuusuario" target="_blank">GitHub</a></p>
+    </div>
+
   </div>
 
-  <div class="card">
-    <h3>Planteamiento del Problema</h3>
-    <p>¿Cómo podemos reducir los riesgos de exposición a sustancias químicas corrosivas y prevenir afecciones causadas por tareas repetitivas, mediante el uso de una mano robótica antropomórfica?</p>
-    <div class="text-center mt-3">
-      <img src="./img/pregunta.png" class="img-fluid rounded" alt="Imagen ilustrativa del problema" style="max-width: 50%; border: 1px solid #00aaff;">
-    </div>
-  </div>
+  <footer class="py-3 mt-5 bg-dark text-center text-white">
+    © 2025 La Garra — Automatización Industrial
+  </footer>
 
-  <div class="card">
-    <h3>Objetivo General</h3>
-    <p>El objetivo general de nuestro proyecto es diseñar una mano robótica antropomórfica capaz de imitar los movimientos y funciones de una mano humana. Equipado con sensores y actuadores que permita realizar tareas precisas como agarre, manipulación de objetos, y movimientos complejos, todo con un alto grado de precisión.</p>
-    <div class="text-center mt-3">
-      <img src="./img/objetivo.png" class="img-fluid rounded" alt="Imagen del objetivo general" style="max-width: 50%; border: 1px solid #00aaff;">
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Objetivos Específicos</h3>
-    <ul>
-      <li>Diseñar la mano robótica para distribuir el esfuerzo y reducir la carga muscular del usuario.</li>
-      <li>Garantizar la confianza que la mano genere en el usuario a la hora de realizar movimientos precisos.</li>
-      <li>Asegurar que el diseño se adapte de manera cómoda y natural a la anatomía de la mano humana.</li>
-      <li>Lograr que la mano no solo imite movimientos, sino que también se pueda programar para realizar una tarea específica.</li>
-      <li>Crear una interfaz que permita al usuario controlar la mano robótica de manera sencilla y sin complicaciones, mejorando la facilidad de uso y la integración con sus movimientos naturales.</li>
-    </ul>
-    <div class="text-center mt-3">
-      <img src="./img/objetivos.png" class="img-fluid rounded" alt="Imagen de objetivos específicos" style="max-width: 50%; border: 1px solid #00aaff;">
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Justificación</h3>
-    <p>Trabajar con sustancias corrosivas siempre implica un riesgo para las personas, ya que la exposición puede causar daños en la piel, los ojos y las vías respiratorias. Además, las tareas repetitivas en este tipo de trabajo pueden provocar problemas musculares con el tiempo, afectando la salud y el bienestar de los trabajadores.
-        Tras una investigación más profunda, identificamos dos problemáticas clave en entornos industriales y de manufactura que motivaron el desarrollo de este proyecto.</p>
-    <div class="text-center mt-3">
-      <img src="./img/justificacion.png" class="img-fluid rounded" alt="Imagen de justificación del proyecto" style="max-width: 50%; border: 1px solid #00aaff;">
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Problemáticas Detectadas</h3>
-    <ul>
-      <li><strong>Lesiones en la piel:</strong> Muchos trabajadores están expuestos a productos químicos agresivos, lo que incrementa el riesgo de quemaduras, irritaciones y afecciones cutáneas severas.</li>
-      <li><strong>Enfermedades musculares:</strong> Las tareas repetitivas, como escribir en el celular o la computadora durante largos periodos de tiempo, o actividades manuales constantes como el corte de alimentos, pueden provocar afecciones como el síndrome del túnel carpiano, tendinitis o fatiga muscular crónica.</li>
-    </ul>
-    <div class="text-center mt-3">
-      <img src="./img/problematicas.png" class="img-fluid rounded" alt="Imagen de problemáticas detectadas" style="max-width: 50%; border: 1px solid #00aaff;">
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Diagrama de Gantt</h3>
-    <p>A continuación, se muestra el diagrama de Gantt que representa la planificación y organización temporal del proyecto:</p>
-    <div style="display: flex; justify-content: center; align-items: center;">
-      <img src="./img/gantt.png" alt="Diagrama de Gantt del Proyecto" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 8px;">
-    </div>
-  </div>
-</section>
-
-  <!-- SEMESTRES SIGUIENTES -->
-  <section id="semestre2" class="hidden-section"><h2>Segundo Semestre</h2><p>Próximamente...</p></section>
-  <section id="semestre3" class="hidden-section"><h2>Tercer Semestre</h2><p>Próximamente...</p></section>
-  <section id="semestre4" class="hidden-section"><h2>Cuarto Semestre</h2><p>Próximamente...</p></section>
-  <section id="semestre5" class="hidden-section"><h2>Quinto Semestre</h2><p>Próximamente...</p></section>
-  <section id="semestre6" class="hidden-section"><h2>Sexto Semestre</h2><p>Próximamente...</p></section>
-</main>
-
-<!-- Script -->
-<script>
-  function mostrarSeccion(id) {
-    const secciones = document.querySelectorAll('main > section');
-    secciones.forEach(sec => sec.classList.add('hidden-section'));
-    document.getElementById(id).classList.remove('hidden-section');
-    window.scrollTo(0, 0);
-  }
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="JS/script.js"></script>
 </body>
 </html>
-
-<style>
-    body {
-      background-color: #0a0a23;
-      color: #e0e0e0;
-      font-family: 'Audiowide', Arial, sans-serif;
-    }
-    /* Mejora visibilidad de párrafos y listas */
-    p, li {
-      color: #f0f8ff;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-    .navbar {
-      background-color: #001122;
-    }
-  </style>
